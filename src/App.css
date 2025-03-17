@@ -1,0 +1,15 @@
+:root {
+  background-color: #222;
+}
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.day {
+  background-color: rgb(173, 183, 230);
+}
+.night {
+  background-color: rgb(43, 50, 82);
+}

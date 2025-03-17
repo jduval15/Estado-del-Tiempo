@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500&display=swap');
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Source Code Pro', monospace;
+  margin: 0;
+}
+h1,h2,h3,h4,p,ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+input, button {
+  font-family: inherit;
+  cursor: pointer;
+}
+img {
+  width: 100%;
+}
