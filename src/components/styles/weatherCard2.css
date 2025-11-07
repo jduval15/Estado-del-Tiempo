@@ -376,3 +376,58 @@ footer > div > a {
     10%, 70% { transform: translateX(-5px); color: rgb(231, 59, 59); }
     40%, 80% { transform: translateX(5px); color:var(--color-accent) }
 }
+
+/* Error message and loading indicator */
+.weather__error-message {
+    margin-top: 0.5em;
+    padding: 0.5rem 1rem;
+    background-color: rgba(231, 76, 60, 0.8);
+    color: white;
+    border-radius: 0.5em;
+    text-align: center;
+    font-size: 0.9rem;
+    max-width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.weather__loading-indicator {
+    margin-top: 0.5em;
+    padding: 0.5rem 1rem;
+    background-color: rgba(52, 152, 219, 0.8);
+    color: white;
+    border-radius: 0.5em;
+    text-align: center;
+    font-size: 0.9rem;
+    max-width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeIn 0.3s ease-in, pulse 1.5s ease-in-out infinite;
+}
+
+.weather__search-input:disabled,
+.weather__search-btn-icon:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
