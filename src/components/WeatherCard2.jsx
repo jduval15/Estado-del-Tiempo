@@ -1,6 +1,6 @@
 import { useState } from "react"
 import './styles/weatherCard2.css'
-const WeatherCard = ({weather, temp, handleSubmit, hasError}) => {
+const WeatherCard = ({weather, temp, handleSubmit, hasError, errorMessage, isLoading}) => {
     const [isCelsius, setIsCelsius] = useState(true) // Cambiar de C a F
     const getFondoImg = () => {
         const clima = weather?.weather[0].main.toLowerCase();
@@ -43,11 +43,32 @@ const WeatherCard = ({weather, temp, handleSubmit, hasError}) => {
                     </button>
                 </nav>
                 <form onSubmit={handleSubmit} className="weather__search">
-                    <input id='inputValue' className="weather__search-input" type="text" placeholder="City name"/>
-                    <button className="weather__search-btn-icon">
+                    <input
+                        id='inputValue'
+                        className="weather__search-input"
+                        type="text"
+                        placeholder="City name"
+                        disabled={isLoading}
+                        required
+                        minLength={2}
+                        maxLength={50}
+                        pattern="[A-Za-zÀ-ÿ\s\-]+"
+                        title="Por favor, ingresa solo letras y espacios"
+                    />
+                    <button className="weather__search-btn-icon" type="submit" disabled={isLoading}>
                         <i className={`bx bx-search-alt ${hasError && 'animationSearch'}`}></i>
                     </button>
                 </form>
+                {errorMessage && (
+                    <div className="weather__error-message">
+                        {errorMessage}
+                    </div>
+                )}
+                {isLoading && (
+                    <div className="weather__loading-indicator">
+                        Buscando...
+                    </div>
+                )}
             </header>
             <section className="weather__body">
                 <div className="weather__icon-Container">
@@ -101,8 +122,8 @@ const WeatherCard = ({weather, temp, handleSubmit, hasError}) => {
             <footer>
                 <div>
                 <p>Contact me</p>
-                <a href="https://www.linkedin.com/in/joseluisduval1505/" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
-                <a href="https://github.com/jduval15/ent.2" target="_blank" ><i class='bx bxl-github' ></i></a>
+                <a href="https://www.linkedin.com/in/joseluisduval1505/" target="_blank" rel="noopener noreferrer"><i className='bx bxl-linkedin-square'></i></a>
+                <a href="https://github.com/jduval15/ent.2" target="_blank" rel="noopener noreferrer"><i className='bx bxl-github' ></i></a>
                 </div>
             </footer>
         </main>
